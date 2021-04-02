@@ -22,8 +22,8 @@ def scrape():
     # Retrieve the parent divs for all articles
     results = soup.find_all('div', class_="list_text")
     # Get the title and teaser from first article
-    first_article_title = results[0].find('div', class_='content_title').text
-    first_article_teaser = results[0].find('div', class_='article_teaser_body').text
+    article_title = results[0].find('div', class_='content_title').text
+    article_body = results[0].find('div', class_='article_teaser_body').text
     # article_dict = {'title':title, 'teaser':teaser}
 
     # print(title)
@@ -98,8 +98,7 @@ def scrape():
         img_urls_titles.append(img_dict)
 
     # img_urls_titles
-    mars_data = {'first_article_title': first_article_title, 'first_article_teaser': first_article_teaser, 'featured_img': featured_img_url, 'mars_facts':mars_facts_html}
 
-
-    # mars_data = {'first_article_title': first_article_title, 'first_article_teaser': {'featured_img': featured_img_dict}, {'mars_facts':mars_facts_dict}, {'img_dict': img_dict}]
+    mars_data = {'first_article': article_title, 'article_body':article_body, 'featured_img': featured_img_url, 'mars_facts':mars_facts_html, 'img_urls_titles': img_urls_titles}
+    
     return mars_data
