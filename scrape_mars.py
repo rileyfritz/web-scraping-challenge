@@ -22,9 +22,9 @@ def scrape():
     # Retrieve the parent divs for all articles
     results = soup.find_all('div', class_="list_text")
     # Get the title and teaser from first article
-    title = results[0].find('div', class_='content_title').text
-    teaser = results[0].find('div', class_='article_teaser_body').text
-    article_dict = {'title':title, 'teaser':teaser}
+    first_article_title = results[0].find('div', class_='content_title').text
+    first_article_teaser = results[0].find('div', class_='article_teaser_body').text
+    # article_dict = {'title':title, 'teaser':teaser}
 
     # print(title)
     # print(teaser)
@@ -38,7 +38,7 @@ def scrape():
 
     img_result = soup.find('a', class_="showimg fancybox-thumbs")
     featured_img_url = url + img_result['href']
-    featured_img_dict = {'img_url': featured_img_url}
+    # featured_img_dict = {'img_url': featured_img_url}
     # print(featured_img_url)
 
     url = 'https://galaxyfacts-mars.com/'
@@ -62,7 +62,7 @@ def scrape():
     # mars_facts.head()
 
     mars_facts_html = mars_facts.to_html()
-    mars_facts_dict = {'html': mars_facts_html}
+    # mars_facts_dict = {'html': mars_facts_html}
     # mars_facts_html
 
     url = 'https://marshemispheres.com/'
@@ -98,5 +98,8 @@ def scrape():
         img_urls_titles.append(img_dict)
 
     # img_urls_titles
-    mars_data = {'first_article': article_dict, 'featured_img': featured_img_dict, 'mars_facts':mars_facts_dict, 'img_dict': img_dict}
+    mars_data = {'first_article_title': first_article_title, 'first_article_teaser': first_article_teaser, 'featured_img': featured_img_url, 'mars_facts':mars_facts_html}
+
+
+    # mars_data = {'first_article_title': first_article_title, 'first_article_teaser': {'featured_img': featured_img_dict}, {'mars_facts':mars_facts_dict}, {'img_dict': img_dict}]
     return mars_data
