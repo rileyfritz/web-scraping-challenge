@@ -1,13 +1,12 @@
+from bs4 import BeautifulSoup
+import requests
+import pandas as pd
+import splinter
+from splinter import Browser
+from webdriver_manager.chrome import ChromeDriverManager
 
 def scrape():
-    # Dependencies
-    from bs4 import BeautifulSoup
-    import requests
-    import pymongo
-    import pandas as pd
-    from splinter import Browser
-    from webdriver_manager.chrome import ChromeDriverManager
-
+    
     # Bringing in browser
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
