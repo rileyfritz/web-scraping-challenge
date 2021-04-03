@@ -100,5 +100,5 @@ def scrape():
     # img_urls_titles
 
     mars_data = {'first_article': article_title, 'article_body':article_body, 'featured_img': featured_img_url, 'mars_facts':mars_facts_html, 'img_urls_titles': img_urls_titles}
-    
+    browser.quit()
     return mars_data

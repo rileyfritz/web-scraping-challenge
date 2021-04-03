@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template, redirect
 import scrape_mars
 from scrape_mars import scrape
 import pymongo
@@ -18,7 +18,7 @@ def scrape():
     facts = db.facts
     facts.update({},mars_data, upsert=True)
 
-    return f'done'
+    return redirect('/')
 
 @app.route("/")
 def index():
