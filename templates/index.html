@@ -17,12 +17,46 @@
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape Data</a></p>
     </div>
 
-    <!-- Phone Listings -->
-    <div class="row" id="craiglist-listings">
+    <div class="row">
       <div class="col-md-12">
+        <h2 class="heading">Latest Mars News</h2>
+        <hr>
         <h4 class="heading">{{mars_data.first_article}}</h4>
+        <h6>{{mars_data.article_body}}</h6>
+
       </div>
     </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="heading">Featured Mars Image</h2>
+        <img src={{mars_data.featured_img}} height="250px" width="auto">
+      </div>  
+      <div class="col-md-6">
+        <h2 class="heading">Some Mars Facts</h2>
+        <table>{{mars_data.mars_facts | safe}}</table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <h6>{{mars_data.img_urls_titles[0].title}}</h6>
+        <img src={{mars_data.img_urls_titles[0].url}} height="200px" width="auto">
+      </div>
+      <div class="col-md-3">
+        <h6>{{mars_data.img_urls_titles[1].title}}</h6>
+        <img src={{mars_data.img_urls_titles[1].url}} height="200px" width="auto">
+      </div>
+      <div class="col-md-3">
+        <h6>{{mars_data.img_urls_titles[2].title}}</h6>
+        <img src={{mars_data.img_urls_titles[2].url}} height="200px" width="auto">
+      </div>
+      <div class="col-md-3">
+        <h6>{{mars_data.img_urls_titles[3].title}}</h6>
+        <img src={{mars_data.img_urls_titles[3].url}} height="200px" width="auto">
+      </div>
+    </div>
+  </div>
 
   </div>
 </body>
