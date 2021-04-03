@@ -20,8 +20,13 @@ def scrape():
 
     return f'done'
 
-# @app.route('/')
-# def homepage():
+@app.route("/")
+def index():
+    conn = 'mongodb://localhost:27017'
+    client = pymongo.MongoClient(conn)
+    db = client.mars_db
+    mars_data = db.facts.find_one()
+    return render_template("index.html", mars_data=mars_data)
 
 
 
